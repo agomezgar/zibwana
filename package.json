@@ -1,0 +1,54 @@
+{
+  "name": "zibwana",
+  "version": "1.0.0",
+  "description": "Ahora también hay que levantar acta de la sesión de tutores. ¡Pues nada, que no se diga!",
+  "main": "main.js",
+  "homepage": "www.aprendizdetecnologo.es",
+  "email":"antonio@aprendizdetecnologo.es",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "build:win": "electron-builder -w",
+    "build:linux":"electron-builder --linux",
+    "dist": "electron-packager  --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=prueba",
+    "dist2":"electron-packager distWin --platform=win32 --arch=x64 --out=dist2",
+    "dist3": "electron-builder --win=portable"
+  },
+  "build": {
+    "appId": "zibwana",
+    "asar":"true",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
+  },
+  "author": "Antonio Gómez García <antonio@aprendizdetecnologo.es>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^21.2.0",
+    "electron-builder": "^23.6.0",
+    "electron-packager": "^17.1.1"
+  }
+}
